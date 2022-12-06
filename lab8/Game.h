@@ -1,4 +1,5 @@
 #pragma once
+#include "newhuman.h"
 
 namespace lab8 {
 
@@ -43,7 +44,14 @@ namespace lab8 {
 	private: System::Windows::Forms::ToolStripMenuItem^ ÔÂÒÓÌ‡ÊToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ Á‰ÓÓ‚¸ÂToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ Ó‰ÂÊ‰‡ToolStripMenuItem;
-	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::GroupBox^ Infobox;
+	private: System::Windows::Forms::Label^ infohealth;
+	private: System::Windows::Forms::Label^ infobalance;
+	private: System::Windows::Forms::Label^ infoname;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ newhumanbutton;
+
+
 
 	private:
 		/// <summary>
@@ -65,8 +73,15 @@ namespace lab8 {
 			this->ÔÂÒÓÌ‡ÊToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Á‰ÓÓ‚¸ÂToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Ó‰ÂÊ‰‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->Infobox = (gcnew System::Windows::Forms::GroupBox());
+			this->infohealth = (gcnew System::Windows::Forms::Label());
+			this->infobalance = (gcnew System::Windows::Forms::Label());
+			this->infoname = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->newhumanbutton = (gcnew System::Windows::Forms::Button());
 			this->menu->SuspendLayout();
+			this->Infobox->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// menu
@@ -81,10 +96,11 @@ namespace lab8 {
 				this->‡·ÓÚ‡ToolStripMenuItem,
 					this->ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem, this->ÔÂÒÓÌ‡ÊToolStripMenuItem, this->Á‰ÓÓ‚¸ÂToolStripMenuItem, this->Ó‰ÂÊ‰‡ToolStripMenuItem
 			});
-			this->menu->Location = System::Drawing::Point(193, 557);
+			this->menu->Location = System::Drawing::Point(54, 446);
 			this->menu->Name = L"menu";
+			this->menu->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
 			this->menu->RenderMode = System::Windows::Forms::ToolStripRenderMode::Professional;
-			this->menu->Size = System::Drawing::Size(650, 80);
+			this->menu->Size = System::Drawing::Size(630, 70);
 			this->menu->TabIndex = 0;
 			this->menu->Text = L"ÃÂÌ˛";
 			// 
@@ -143,35 +159,109 @@ namespace lab8 {
 			this->Ó‰ÂÊ‰‡ToolStripMenuItem->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->Ó‰ÂÊ‰‡ToolStripMenuItem->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageAboveText;
 			// 
-			// groupBox1
+			// Infobox
 			// 
-			this->groupBox1->BackColor = System::Drawing::SystemColors::Info;
-			this->groupBox1->Location = System::Drawing::Point(751, 2);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(255, 99);
-			this->groupBox1->TabIndex = 1;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Infobox";
+			this->Infobox->BackColor = System::Drawing::SystemColors::Info;
+			this->Infobox->Controls->Add(this->infohealth);
+			this->Infobox->Controls->Add(this->infobalance);
+			this->Infobox->Controls->Add(this->infoname);
+			this->Infobox->Controls->Add(this->pictureBox1);
+			this->Infobox->Location = System::Drawing::Point(560, 2);
+			this->Infobox->Margin = System::Windows::Forms::Padding(2);
+			this->Infobox->Name = L"Infobox";
+			this->Infobox->Padding = System::Windows::Forms::Padding(2);
+			this->Infobox->Size = System::Drawing::Size(194, 67);
+			this->Infobox->TabIndex = 1;
+			this->Infobox->TabStop = false;
+			// 
+			// infohealth
+			// 
+			this->infohealth->AutoSize = true;
+			this->infohealth->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infohealth->Location = System::Drawing::Point(-3, 47);
+			this->infohealth->Name = L"infohealth";
+			this->infohealth->Size = System::Drawing::Size(72, 17);
+			this->infohealth->TabIndex = 2;
+			this->infohealth->Text = L"«‰ÓÓ‚¸Â";
+			// 
+			// infobalance
+			// 
+			this->infobalance->AutoSize = true;
+			this->infobalance->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infobalance->Location = System::Drawing::Point(-3, 17);
+			this->infobalance->Name = L"infobalance";
+			this->infobalance->Size = System::Drawing::Size(56, 17);
+			this->infobalance->TabIndex = 2;
+			this->infobalance->Text = L"¡‡Î‡ÌÒ";
+			// 
+			// infoname
+			// 
+			this->infoname->AutoSize = true;
+			this->infoname->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infoname->Location = System::Drawing::Point(-3, 0);
+			this->infoname->Name = L"infoname";
+			this->infoname->Size = System::Drawing::Size(38, 17);
+			this->infoname->TabIndex = 1;
+			this->infoname->Text = L"»Ïˇ";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(126, 0);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(65, 64);
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
+			// 
+			// newhumanbutton
+			// 
+			this->newhumanbutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->newhumanbutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->newhumanbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->newhumanbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->newhumanbutton->Location = System::Drawing::Point(314, 236);
+			this->newhumanbutton->Name = L"newhumanbutton";
+			this->newhumanbutton->Size = System::Drawing::Size(107, 52);
+			this->newhumanbutton->TabIndex = 2;
+			this->newhumanbutton->Text = L"—ÓÁ‰‡Ú¸ ÔÂÒÓÌ‡Ê‡";
+			this->newhumanbutton->UseVisualStyleBackColor = false;
+			this->newhumanbutton->Click += gcnew System::EventHandler(this, &Game::newhumanbutton_Click);
 			// 
 			// Game
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->ClientSize = System::Drawing::Size(1007, 646);
-			this->Controls->Add(this->groupBox1);
+			this->ClientSize = System::Drawing::Size(755, 525);
+			this->Controls->Add(this->newhumanbutton);
+			this->Controls->Add(this->Infobox);
 			this->Controls->Add(this->menu);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menu;
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->MaximizeBox = false;
 			this->Name = L"Game";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"√Î‡‚ÌÓÂ ÏÂÌ˛";
 			this->menu->ResumeLayout(false);
 			this->menu->PerformLayout();
+			this->Infobox->ResumeLayout(false);
+			this->Infobox->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+private: System::Void newhumanbutton_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->newhumanbutton->Visible = false;
+	newhuman^ nh = gcnew newhuman();
+	nh->Show();
+}
 };
 }
