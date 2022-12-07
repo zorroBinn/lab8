@@ -122,6 +122,10 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtycar;
 private: System::Windows::Forms::CheckBox^ checkBoxcar;
 private: System::Windows::Forms::CheckBox^ checkBoxhouse;
 private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
+private: System::Windows::Forms::Label^ infohealthpercent;
+private: System::Windows::Forms::Label^ infomoneybalance;
+
+
 
 
 
@@ -148,6 +152,8 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			this->çäîðîâüåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îäåæäàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Infobox = (gcnew System::Windows::Forms::GroupBox());
+			this->infomoneybalance = (gcnew System::Windows::Forms::Label());
+			this->infohealthpercent = (gcnew System::Windows::Forms::Label());
 			this->infopercent = (gcnew System::Windows::Forms::Label());
 			this->infohealth = (gcnew System::Windows::Forms::Label());
 			this->infobalance = (gcnew System::Windows::Forms::Label());
@@ -165,6 +171,14 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			this->labelhumanname = (gcnew System::Windows::Forms::Label());
 			this->labelmyhuman = (gcnew System::Windows::Forms::Label());
 			this->groupBoxwork = (gcnew System::Windows::Forms::GroupBox());
+			this->workingbutton = (gcnew System::Windows::Forms::Button());
+			this->payment = (gcnew System::Windows::Forms::Label());
+			this->labelpayment = (gcnew System::Windows::Forms::Label());
+			this->namework = (gcnew System::Windows::Forms::Label());
+			this->labelnamework = (gcnew System::Windows::Forms::Label());
+			this->workname = (gcnew System::Windows::Forms::Label());
+			this->labelworkhumanname = (gcnew System::Windows::Forms::Label());
+			this->labelwork = (gcnew System::Windows::Forms::Label());
 			this->groupBoxmd = (gcnew System::Windows::Forms::GroupBox());
 			this->labelmdpercent = (gcnew System::Windows::Forms::Label());
 			this->health = (gcnew System::Windows::Forms::Label());
@@ -179,14 +193,6 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			this->mdname = (gcnew System::Windows::Forms::Label());
 			this->labelmdname = (gcnew System::Windows::Forms::Label());
 			this->labelmedicalcard = (gcnew System::Windows::Forms::Label());
-			this->workingbutton = (gcnew System::Windows::Forms::Button());
-			this->payment = (gcnew System::Windows::Forms::Label());
-			this->labelpayment = (gcnew System::Windows::Forms::Label());
-			this->namework = (gcnew System::Windows::Forms::Label());
-			this->labelnamework = (gcnew System::Windows::Forms::Label());
-			this->workname = (gcnew System::Windows::Forms::Label());
-			this->labelworkhumanname = (gcnew System::Windows::Forms::Label());
-			this->labelwork = (gcnew System::Windows::Forms::Label());
 			this->groupBoxrealty = (gcnew System::Windows::Forms::GroupBox());
 			this->comboBoxrealtycar = (gcnew System::Windows::Forms::ComboBox());
 			this->checkBoxcar = (gcnew System::Windows::Forms::CheckBox());
@@ -291,6 +297,8 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			// Infobox
 			// 
 			this->Infobox->BackColor = System::Drawing::SystemColors::Info;
+			this->Infobox->Controls->Add(this->infomoneybalance);
+			this->Infobox->Controls->Add(this->infohealthpercent);
 			this->Infobox->Controls->Add(this->infopercent);
 			this->Infobox->Controls->Add(this->infohealth);
 			this->Infobox->Controls->Add(this->infobalance);
@@ -300,17 +308,39 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			this->Infobox->Margin = System::Windows::Forms::Padding(2);
 			this->Infobox->Name = L"Infobox";
 			this->Infobox->Padding = System::Windows::Forms::Padding(2);
-			this->Infobox->Size = System::Drawing::Size(194, 67);
+			this->Infobox->Size = System::Drawing::Size(194, 75);
 			this->Infobox->TabIndex = 1;
 			this->Infobox->TabStop = false;
 			this->Infobox->Visible = false;
+			// 
+			// infomoneybalance
+			// 
+			this->infomoneybalance->AutoSize = true;
+			this->infomoneybalance->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infomoneybalance->Location = System::Drawing::Point(5, 34);
+			this->infomoneybalance->Name = L"infomoneybalance";
+			this->infomoneybalance->Size = System::Drawing::Size(47, 15);
+			this->infomoneybalance->TabIndex = 20;
+			this->infomoneybalance->Text = L"Áàëàíñ";
+			// 
+			// infohealthpercent
+			// 
+			this->infohealthpercent->AutoSize = true;
+			this->infohealthpercent->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infohealthpercent->Location = System::Drawing::Point(68, 56);
+			this->infohealthpercent->Name = L"infohealthpercent";
+			this->infohealthpercent->Size = System::Drawing::Size(32, 17);
+			this->infohealthpercent->TabIndex = 19;
+			this->infohealthpercent->Text = L"100";
 			// 
 			// infopercent
 			// 
 			this->infopercent->AutoSize = true;
 			this->infopercent->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->infopercent->Location = System::Drawing::Point(69, 47);
+			this->infopercent->Location = System::Drawing::Point(101, 56);
 			this->infopercent->Name = L"infopercent";
 			this->infopercent->Size = System::Drawing::Size(23, 17);
 			this->infopercent->TabIndex = 18;
@@ -321,7 +351,7 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			this->infohealth->AutoSize = true;
 			this->infohealth->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->infohealth->Location = System::Drawing::Point(-3, 47);
+			this->infohealth->Location = System::Drawing::Point(-3, 56);
 			this->infohealth->Name = L"infohealth";
 			this->infohealth->Size = System::Drawing::Size(72, 17);
 			this->infohealth->TabIndex = 2;
@@ -352,9 +382,9 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(126, 0);
+			this->pictureBox1->Location = System::Drawing::Point(130, 0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(65, 64);
+			this->pictureBox1->Size = System::Drawing::Size(64, 75);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -525,6 +555,110 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			this->groupBoxwork->TabIndex = 11;
 			this->groupBoxwork->TabStop = false;
 			this->groupBoxwork->Visible = false;
+			// 
+			// workingbutton
+			// 
+			this->workingbutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->workingbutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->workingbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->workingbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->workingbutton->Location = System::Drawing::Point(76, 275);
+			this->workingbutton->Name = L"workingbutton";
+			this->workingbutton->Size = System::Drawing::Size(107, 52);
+			this->workingbutton->TabIndex = 12;
+			this->workingbutton->Text = L"Ðàáîòàòü";
+			this->workingbutton->UseVisualStyleBackColor = false;
+			// 
+			// payment
+			// 
+			this->payment->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->payment->AutoSize = true;
+			this->payment->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->payment->Location = System::Drawing::Point(107, 135);
+			this->payment->Name = L"payment";
+			this->payment->Size = System::Drawing::Size(73, 17);
+			this->payment->TabIndex = 8;
+			this->payment->Text = L"ÎÏËÀÒÀ";
+			this->payment->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// labelpayment
+			// 
+			this->labelpayment->AutoSize = true;
+			this->labelpayment->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelpayment->Location = System::Drawing::Point(6, 135);
+			this->labelpayment->Name = L"labelpayment";
+			this->labelpayment->Size = System::Drawing::Size(59, 17);
+			this->labelpayment->TabIndex = 7;
+			this->labelpayment->Text = L"Îïëàòà";
+			// 
+			// namework
+			// 
+			this->namework->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->namework->AutoSize = true;
+			this->namework->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->namework->Location = System::Drawing::Point(107, 99);
+			this->namework->Name = L"namework";
+			this->namework->Size = System::Drawing::Size(68, 17);
+			this->namework->TabIndex = 6;
+			this->namework->Text = L"ÐÀÁÎÒÀ";
+			this->namework->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// labelnamework
+			// 
+			this->labelnamework->AutoSize = true;
+			this->labelnamework->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelnamework->Location = System::Drawing::Point(6, 99);
+			this->labelnamework->Name = L"labelnamework";
+			this->labelnamework->Size = System::Drawing::Size(55, 17);
+			this->labelnamework->TabIndex = 5;
+			this->labelnamework->Text = L"Ðàáîòà";
+			// 
+			// workname
+			// 
+			this->workname->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->workname->AutoSize = true;
+			this->workname->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->workname->Location = System::Drawing::Point(107, 61);
+			this->workname->Name = L"workname";
+			this->workname->Size = System::Drawing::Size(46, 17);
+			this->workname->TabIndex = 4;
+			this->workname->Text = L"ÈÌß";
+			this->workname->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// labelworkhumanname
+			// 
+			this->labelworkhumanname->AutoSize = true;
+			this->labelworkhumanname->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelworkhumanname->Location = System::Drawing::Point(6, 61);
+			this->labelworkhumanname->Name = L"labelworkhumanname";
+			this->labelworkhumanname->Size = System::Drawing::Size(38, 17);
+			this->labelworkhumanname->TabIndex = 3;
+			this->labelworkhumanname->Text = L"Èìÿ";
+			// 
+			// labelwork
+			// 
+			this->labelwork->AutoSize = true;
+			this->labelwork->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelwork->Location = System::Drawing::Point(46, 16);
+			this->labelwork->Name = L"labelwork";
+			this->labelwork->Size = System::Drawing::Size(170, 22);
+			this->labelwork->TabIndex = 2;
+			this->labelwork->Text = L"Ðàáî÷àÿ êàðòî÷êà";
 			// 
 			// groupBoxmd
 			// 
@@ -715,110 +849,6 @@ private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 			this->labelmedicalcard->Size = System::Drawing::Size(186, 22);
 			this->labelmedicalcard->TabIndex = 2;
 			this->labelmedicalcard->Text = L"Ìåäèöèíñêàÿ êàðòà";
-			// 
-			// workingbutton
-			// 
-			this->workingbutton->BackColor = System::Drawing::Color::Goldenrod;
-			this->workingbutton->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->workingbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->workingbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->workingbutton->Location = System::Drawing::Point(76, 275);
-			this->workingbutton->Name = L"workingbutton";
-			this->workingbutton->Size = System::Drawing::Size(107, 52);
-			this->workingbutton->TabIndex = 12;
-			this->workingbutton->Text = L"Ðàáîòàòü";
-			this->workingbutton->UseVisualStyleBackColor = false;
-			// 
-			// payment
-			// 
-			this->payment->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->payment->AutoSize = true;
-			this->payment->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->payment->Location = System::Drawing::Point(107, 135);
-			this->payment->Name = L"payment";
-			this->payment->Size = System::Drawing::Size(73, 17);
-			this->payment->TabIndex = 8;
-			this->payment->Text = L"ÎÏËÀÒÀ";
-			this->payment->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// labelpayment
-			// 
-			this->labelpayment->AutoSize = true;
-			this->labelpayment->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->labelpayment->Location = System::Drawing::Point(6, 135);
-			this->labelpayment->Name = L"labelpayment";
-			this->labelpayment->Size = System::Drawing::Size(59, 17);
-			this->labelpayment->TabIndex = 7;
-			this->labelpayment->Text = L"Îïëàòà";
-			// 
-			// namework
-			// 
-			this->namework->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->namework->AutoSize = true;
-			this->namework->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->namework->Location = System::Drawing::Point(107, 99);
-			this->namework->Name = L"namework";
-			this->namework->Size = System::Drawing::Size(68, 17);
-			this->namework->TabIndex = 6;
-			this->namework->Text = L"ÐÀÁÎÒÀ";
-			this->namework->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// labelnamework
-			// 
-			this->labelnamework->AutoSize = true;
-			this->labelnamework->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->labelnamework->Location = System::Drawing::Point(6, 99);
-			this->labelnamework->Name = L"labelnamework";
-			this->labelnamework->Size = System::Drawing::Size(55, 17);
-			this->labelnamework->TabIndex = 5;
-			this->labelnamework->Text = L"Ðàáîòà";
-			// 
-			// workname
-			// 
-			this->workname->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->workname->AutoSize = true;
-			this->workname->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->workname->Location = System::Drawing::Point(107, 61);
-			this->workname->Name = L"workname";
-			this->workname->Size = System::Drawing::Size(46, 17);
-			this->workname->TabIndex = 4;
-			this->workname->Text = L"ÈÌß";
-			this->workname->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// labelworkhumanname
-			// 
-			this->labelworkhumanname->AutoSize = true;
-			this->labelworkhumanname->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->labelworkhumanname->Location = System::Drawing::Point(6, 61);
-			this->labelworkhumanname->Name = L"labelworkhumanname";
-			this->labelworkhumanname->Size = System::Drawing::Size(38, 17);
-			this->labelworkhumanname->TabIndex = 3;
-			this->labelworkhumanname->Text = L"Èìÿ";
-			// 
-			// labelwork
-			// 
-			this->labelwork->AutoSize = true;
-			this->labelwork->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->labelwork->Location = System::Drawing::Point(46, 16);
-			this->labelwork->Name = L"labelwork";
-			this->labelwork->Size = System::Drawing::Size(170, 22);
-			this->labelwork->TabIndex = 2;
-			this->labelwork->Text = L"Ðàáî÷àÿ êàðòî÷êà";
 			// 
 			// groupBoxrealty
 			// 
