@@ -124,6 +124,12 @@ private: System::Windows::Forms::CheckBox^ checkBoxhouse;
 private: System::Windows::Forms::ComboBox^ comboBoxrealtyhouse;
 private: System::Windows::Forms::Label^ infohealthpercent;
 private: System::Windows::Forms::Label^ infomoneybalance;
+private: System::Windows::Forms::GroupBox^ groupBoxclothes;
+private: System::Windows::Forms::DataGridView^ dataGridViewclothes;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ parametr;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ cloth;
+private: System::Windows::Forms::Button^ buttonsewup;
+private: System::Windows::Forms::Label^ labelclothes;
 
 
 
@@ -145,6 +151,9 @@ private: System::Windows::Forms::Label^ infomoneybalance;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle13 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->ðàáîòàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->èìóùåñòâîToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -180,6 +189,12 @@ private: System::Windows::Forms::Label^ infomoneybalance;
 			this->labelworkhumanname = (gcnew System::Windows::Forms::Label());
 			this->labelwork = (gcnew System::Windows::Forms::Label());
 			this->groupBoxmd = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBoxclothes = (gcnew System::Windows::Forms::GroupBox());
+			this->dataGridViewclothes = (gcnew System::Windows::Forms::DataGridView());
+			this->parametr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->buttonsewup = (gcnew System::Windows::Forms::Button());
+			this->labelclothes = (gcnew System::Windows::Forms::Label());
 			this->labelmdpercent = (gcnew System::Windows::Forms::Label());
 			this->health = (gcnew System::Windows::Forms::Label());
 			this->labelhealth = (gcnew System::Windows::Forms::Label());
@@ -211,6 +226,8 @@ private: System::Windows::Forms::Label^ infomoneybalance;
 			this->groupBoxhuman->SuspendLayout();
 			this->groupBoxwork->SuspendLayout();
 			this->groupBoxmd->SuspendLayout();
+			this->groupBoxclothes->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewclothes))->BeginInit();
 			this->groupBoxrealty->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -683,6 +700,100 @@ private: System::Windows::Forms::Label^ infomoneybalance;
 			this->groupBoxmd->TabStop = false;
 			this->groupBoxmd->Visible = false;
 			// 
+			// groupBoxclothes
+			// 
+			this->groupBoxclothes->BackColor = System::Drawing::Color::NavajoWhite;
+			this->groupBoxclothes->Controls->Add(this->dataGridViewclothes);
+			this->groupBoxclothes->Controls->Add(this->buttonsewup);
+			this->groupBoxclothes->Controls->Add(this->labelclothes);
+			this->groupBoxclothes->Location = System::Drawing::Point(241, 82);
+			this->groupBoxclothes->Name = L"groupBoxclothes";
+			this->groupBoxclothes->Size = System::Drawing::Size(259, 361);
+			this->groupBoxclothes->TabIndex = 13;
+			this->groupBoxclothes->TabStop = false;
+			this->groupBoxclothes->Visible = false;
+			// 
+			// dataGridViewclothes
+			// 
+			this->dataGridViewclothes->AllowUserToAddRows = false;
+			this->dataGridViewclothes->AllowUserToDeleteRows = false;
+			this->dataGridViewclothes->AllowUserToResizeColumns = false;
+			this->dataGridViewclothes->AllowUserToResizeRows = false;
+			this->dataGridViewclothes->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
+			dataGridViewCellStyle13->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle13->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle13->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			dataGridViewCellStyle13->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle13->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle13->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle13->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->parametr,
+					this->cloth
+			});
+			this->dataGridViewclothes->GridColor = System::Drawing::Color::Goldenrod;
+			this->dataGridViewclothes->Location = System::Drawing::Point(6, 41);
+			this->dataGridViewclothes->Name = L"dataGridViewclothes";
+			this->dataGridViewclothes->ReadOnly = true;
+			this->dataGridViewclothes->RowHeadersVisible = false;
+			this->dataGridViewclothes->Size = System::Drawing::Size(247, 212);
+			this->dataGridViewclothes->TabIndex = 13;
+			// 
+			// parametr
+			// 
+			dataGridViewCellStyle14->BackColor = System::Drawing::Color::NavajoWhite;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle14;
+			this->parametr->Frozen = true;
+			this->parametr->HeaderText = L"Ïàðàìåòð";
+			this->parametr->MaxInputLength = 30;
+			this->parametr->Name = L"parametr";
+			this->parametr->ReadOnly = true;
+			this->parametr->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->parametr->Width = 124;
+			// 
+			// cloth
+			// 
+			dataGridViewCellStyle15->BackColor = System::Drawing::Color::NavajoWhite;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle15;
+			this->cloth->Frozen = true;
+			this->cloth->HeaderText = L"Îäåæäà";
+			this->cloth->MaxInputLength = 30;
+			this->cloth->Name = L"cloth";
+			this->cloth->ReadOnly = true;
+			this->cloth->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->cloth->Width = 124;
+			// 
+			// buttonsewup
+			// 
+			this->buttonsewup->BackColor = System::Drawing::Color::Goldenrod;
+			this->buttonsewup->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->buttonsewup->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->buttonsewup->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->buttonsewup->Location = System::Drawing::Point(65, 275);
+			this->buttonsewup->Name = L"buttonsewup";
+			this->buttonsewup->Size = System::Drawing::Size(124, 52);
+			this->buttonsewup->TabIndex = 12;
+			this->buttonsewup->Text = L"Ïî÷èíèòü îäåæäó(5$)";
+			this->buttonsewup->UseVisualStyleBackColor = false;
+			// 
+			// labelclothes
+			// 
+			this->labelclothes->AutoSize = true;
+			this->labelclothes->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelclothes->Location = System::Drawing::Point(95, 16);
+			this->labelclothes->Name = L"labelclothes";
+			this->labelclothes->Size = System::Drawing::Size(77, 22);
+			this->labelclothes->TabIndex = 2;
+			this->labelclothes->Text = L"Îäåæäà";
+			// 
 			// labelmdpercent
 			// 
 			this->labelmdpercent->AutoSize = true;
@@ -1022,6 +1133,7 @@ private: System::Windows::Forms::Label^ infomoneybalance;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(755, 525);
+			this->Controls->Add(this->groupBoxclothes);
 			this->Controls->Add(this->groupBoxmd);
 			this->Controls->Add(this->groupBoxrealty);
 			this->Controls->Add(this->groupBoxwork);
@@ -1047,6 +1159,9 @@ private: System::Windows::Forms::Label^ infomoneybalance;
 			this->groupBoxwork->PerformLayout();
 			this->groupBoxmd->ResumeLayout(false);
 			this->groupBoxmd->PerformLayout();
+			this->groupBoxclothes->ResumeLayout(false);
+			this->groupBoxclothes->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewclothes))->EndInit();
 			this->groupBoxrealty->ResumeLayout(false);
 			this->groupBoxrealty->PerformLayout();
 			this->ResumeLayout(false);
@@ -1060,34 +1175,39 @@ private: System::Void newhumanbutton_Click(System::Object^ sender, System::Event
 	nh->Show();
 }
 private: System::Void ïåðñîíàæToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->groupBoxhuman->Visible = true;
 	this->groupBoxwork->Visible = false;
+	this->groupBoxclothes->Visible = false;
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
+	this->groupBoxhuman->Visible = true;
 }
 private: System::Void çäîðîâüåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
 	this->groupBoxwork->Visible = false;
-	this->groupBoxmd->Visible = true;
+	this->groupBoxclothes->Visible = false;
 	this->groupBoxrealty->Visible = false;
+	this->groupBoxmd->Visible = true;
 }
 private: System::Void èìóùåñòâîToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
 	this->groupBoxwork->Visible = false;
 	this->groupBoxmd->Visible = false;
+	this->groupBoxclothes->Visible = false;
 	this->groupBoxrealty->Visible = true;
 }
 private: System::Void ðàáîòàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
-	this->groupBoxwork->Visible = true;
+	this->groupBoxclothes->Visible = false;
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
+	this->groupBoxwork->Visible = true;
 }
 private: System::Void îäåæäàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
 	this->groupBoxwork->Visible = false;
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
+	this->groupBoxclothes->Visible = true;
 }
 private: System::Void checkBoxhouse_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (this->checkBoxhouse->Checked == true) {
