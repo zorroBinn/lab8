@@ -8,7 +8,10 @@ private:
 	Int32 Payment;
 
 public:
-	Work(String^ namework, Int32 Payment);
+	Work();
+	Work(String^ namework, Int32 payment);
 	Int32 GetPayment();
+	void SetPayment(Int32 payment);
 	String^ GetNamework();
+	void SetNamework(String^ namework);
 };

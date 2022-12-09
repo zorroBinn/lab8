@@ -130,6 +130,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ parametr;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ cloth;
 private: System::Windows::Forms::Button^ buttonsewup;
 private: System::Windows::Forms::Label^ labelclothes;
+private: System::Windows::Forms::Button^ buysuitbutton;
 
 
 
@@ -151,9 +152,9 @@ private: System::Windows::Forms::Label^ labelclothes;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle13 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->работаToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->имуществоToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -189,12 +190,6 @@ private: System::Windows::Forms::Label^ labelclothes;
 			this->labelworkhumanname = (gcnew System::Windows::Forms::Label());
 			this->labelwork = (gcnew System::Windows::Forms::Label());
 			this->groupBoxmd = (gcnew System::Windows::Forms::GroupBox());
-			this->groupBoxclothes = (gcnew System::Windows::Forms::GroupBox());
-			this->dataGridViewclothes = (gcnew System::Windows::Forms::DataGridView());
-			this->parametr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->buttonsewup = (gcnew System::Windows::Forms::Button());
-			this->labelclothes = (gcnew System::Windows::Forms::Label());
 			this->labelmdpercent = (gcnew System::Windows::Forms::Label());
 			this->health = (gcnew System::Windows::Forms::Label());
 			this->labelhealth = (gcnew System::Windows::Forms::Label());
@@ -208,6 +203,12 @@ private: System::Windows::Forms::Label^ labelclothes;
 			this->mdname = (gcnew System::Windows::Forms::Label());
 			this->labelmdname = (gcnew System::Windows::Forms::Label());
 			this->labelmedicalcard = (gcnew System::Windows::Forms::Label());
+			this->groupBoxclothes = (gcnew System::Windows::Forms::GroupBox());
+			this->dataGridViewclothes = (gcnew System::Windows::Forms::DataGridView());
+			this->parametr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->buttonsewup = (gcnew System::Windows::Forms::Button());
+			this->labelclothes = (gcnew System::Windows::Forms::Label());
 			this->groupBoxrealty = (gcnew System::Windows::Forms::GroupBox());
 			this->comboBoxrealtycar = (gcnew System::Windows::Forms::ComboBox());
 			this->checkBoxcar = (gcnew System::Windows::Forms::CheckBox());
@@ -220,6 +221,7 @@ private: System::Windows::Forms::Label^ labelclothes;
 			this->realtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealty = (gcnew System::Windows::Forms::Label());
+			this->buysuitbutton = (gcnew System::Windows::Forms::Button());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -700,100 +702,6 @@ private: System::Windows::Forms::Label^ labelclothes;
 			this->groupBoxmd->TabStop = false;
 			this->groupBoxmd->Visible = false;
 			// 
-			// groupBoxclothes
-			// 
-			this->groupBoxclothes->BackColor = System::Drawing::Color::NavajoWhite;
-			this->groupBoxclothes->Controls->Add(this->dataGridViewclothes);
-			this->groupBoxclothes->Controls->Add(this->buttonsewup);
-			this->groupBoxclothes->Controls->Add(this->labelclothes);
-			this->groupBoxclothes->Location = System::Drawing::Point(241, 82);
-			this->groupBoxclothes->Name = L"groupBoxclothes";
-			this->groupBoxclothes->Size = System::Drawing::Size(259, 361);
-			this->groupBoxclothes->TabIndex = 13;
-			this->groupBoxclothes->TabStop = false;
-			this->groupBoxclothes->Visible = false;
-			// 
-			// dataGridViewclothes
-			// 
-			this->dataGridViewclothes->AllowUserToAddRows = false;
-			this->dataGridViewclothes->AllowUserToDeleteRows = false;
-			this->dataGridViewclothes->AllowUserToResizeColumns = false;
-			this->dataGridViewclothes->AllowUserToResizeRows = false;
-			this->dataGridViewclothes->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
-			dataGridViewCellStyle13->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle13->BackColor = System::Drawing::Color::Cornsilk;
-			dataGridViewCellStyle13->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle13->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle13->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle13->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle13->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
-				this->parametr,
-					this->cloth
-			});
-			this->dataGridViewclothes->GridColor = System::Drawing::Color::Goldenrod;
-			this->dataGridViewclothes->Location = System::Drawing::Point(6, 41);
-			this->dataGridViewclothes->Name = L"dataGridViewclothes";
-			this->dataGridViewclothes->ReadOnly = true;
-			this->dataGridViewclothes->RowHeadersVisible = false;
-			this->dataGridViewclothes->Size = System::Drawing::Size(247, 212);
-			this->dataGridViewclothes->TabIndex = 13;
-			// 
-			// parametr
-			// 
-			dataGridViewCellStyle14->BackColor = System::Drawing::Color::NavajoWhite;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle14;
-			this->parametr->Frozen = true;
-			this->parametr->HeaderText = L"Параметр";
-			this->parametr->MaxInputLength = 30;
-			this->parametr->Name = L"parametr";
-			this->parametr->ReadOnly = true;
-			this->parametr->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->parametr->Width = 124;
-			// 
-			// cloth
-			// 
-			dataGridViewCellStyle15->BackColor = System::Drawing::Color::NavajoWhite;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle15;
-			this->cloth->Frozen = true;
-			this->cloth->HeaderText = L"Одежда";
-			this->cloth->MaxInputLength = 30;
-			this->cloth->Name = L"cloth";
-			this->cloth->ReadOnly = true;
-			this->cloth->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->cloth->Width = 124;
-			// 
-			// buttonsewup
-			// 
-			this->buttonsewup->BackColor = System::Drawing::Color::Goldenrod;
-			this->buttonsewup->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->buttonsewup->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->buttonsewup->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->buttonsewup->Location = System::Drawing::Point(65, 275);
-			this->buttonsewup->Name = L"buttonsewup";
-			this->buttonsewup->Size = System::Drawing::Size(124, 52);
-			this->buttonsewup->TabIndex = 12;
-			this->buttonsewup->Text = L"Починить одежду(5$)";
-			this->buttonsewup->UseVisualStyleBackColor = false;
-			// 
-			// labelclothes
-			// 
-			this->labelclothes->AutoSize = true;
-			this->labelclothes->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->labelclothes->Location = System::Drawing::Point(95, 16);
-			this->labelclothes->Name = L"labelclothes";
-			this->labelclothes->Size = System::Drawing::Size(77, 22);
-			this->labelclothes->TabIndex = 2;
-			this->labelclothes->Text = L"Одежда";
-			// 
 			// labelmdpercent
 			// 
 			this->labelmdpercent->AutoSize = true;
@@ -961,6 +869,101 @@ private: System::Windows::Forms::Label^ labelclothes;
 			this->labelmedicalcard->TabIndex = 2;
 			this->labelmedicalcard->Text = L"Медицинская карта";
 			// 
+			// groupBoxclothes
+			// 
+			this->groupBoxclothes->BackColor = System::Drawing::Color::NavajoWhite;
+			this->groupBoxclothes->Controls->Add(this->buysuitbutton);
+			this->groupBoxclothes->Controls->Add(this->dataGridViewclothes);
+			this->groupBoxclothes->Controls->Add(this->buttonsewup);
+			this->groupBoxclothes->Controls->Add(this->labelclothes);
+			this->groupBoxclothes->Location = System::Drawing::Point(241, 82);
+			this->groupBoxclothes->Name = L"groupBoxclothes";
+			this->groupBoxclothes->Size = System::Drawing::Size(259, 361);
+			this->groupBoxclothes->TabIndex = 13;
+			this->groupBoxclothes->TabStop = false;
+			this->groupBoxclothes->Visible = false;
+			// 
+			// dataGridViewclothes
+			// 
+			this->dataGridViewclothes->AllowUserToAddRows = false;
+			this->dataGridViewclothes->AllowUserToDeleteRows = false;
+			this->dataGridViewclothes->AllowUserToResizeColumns = false;
+			this->dataGridViewclothes->AllowUserToResizeRows = false;
+			this->dataGridViewclothes->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->parametr,
+					this->cloth
+			});
+			this->dataGridViewclothes->GridColor = System::Drawing::Color::Goldenrod;
+			this->dataGridViewclothes->Location = System::Drawing::Point(6, 41);
+			this->dataGridViewclothes->Name = L"dataGridViewclothes";
+			this->dataGridViewclothes->ReadOnly = true;
+			this->dataGridViewclothes->RowHeadersVisible = false;
+			this->dataGridViewclothes->Size = System::Drawing::Size(247, 179);
+			this->dataGridViewclothes->TabIndex = 13;
+			// 
+			// parametr
+			// 
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::NavajoWhite;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
+			this->parametr->Frozen = true;
+			this->parametr->HeaderText = L"Параметр";
+			this->parametr->MaxInputLength = 30;
+			this->parametr->Name = L"parametr";
+			this->parametr->ReadOnly = true;
+			this->parametr->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->parametr->Width = 124;
+			// 
+			// cloth
+			// 
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::NavajoWhite;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
+			this->cloth->Frozen = true;
+			this->cloth->HeaderText = L"Одежда";
+			this->cloth->MaxInputLength = 30;
+			this->cloth->Name = L"cloth";
+			this->cloth->ReadOnly = true;
+			this->cloth->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->cloth->Width = 124;
+			// 
+			// buttonsewup
+			// 
+			this->buttonsewup->BackColor = System::Drawing::Color::Goldenrod;
+			this->buttonsewup->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->buttonsewup->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->buttonsewup->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->buttonsewup->Location = System::Drawing::Point(65, 275);
+			this->buttonsewup->Name = L"buttonsewup";
+			this->buttonsewup->Size = System::Drawing::Size(124, 52);
+			this->buttonsewup->TabIndex = 12;
+			this->buttonsewup->Text = L"Починить одежду(5$)";
+			this->buttonsewup->UseVisualStyleBackColor = false;
+			// 
+			// labelclothes
+			// 
+			this->labelclothes->AutoSize = true;
+			this->labelclothes->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelclothes->Location = System::Drawing::Point(95, 16);
+			this->labelclothes->Name = L"labelclothes";
+			this->labelclothes->Size = System::Drawing::Size(77, 22);
+			this->labelclothes->TabIndex = 2;
+			this->labelclothes->Text = L"Одежда";
+			// 
 			// groupBoxrealty
 			// 
 			this->groupBoxrealty->BackColor = System::Drawing::Color::NavajoWhite;
@@ -1125,6 +1128,21 @@ private: System::Windows::Forms::Label^ labelclothes;
 			this->labelrealty->Size = System::Drawing::Size(108, 22);
 			this->labelrealty->TabIndex = 2;
 			this->labelrealty->Text = L"Имущество";
+			// 
+			// buysuitbutton
+			// 
+			this->buysuitbutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->buysuitbutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->buysuitbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->buysuitbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->buysuitbutton->Location = System::Drawing::Point(55, 226);
+			this->buysuitbutton->Name = L"buysuitbutton";
+			this->buysuitbutton->Size = System::Drawing::Size(145, 43);
+			this->buysuitbutton->TabIndex = 14;
+			this->buysuitbutton->Text = L"Купить костюм(1000$)";
+			this->buysuitbutton->UseVisualStyleBackColor = false;
 			// 
 			// Game
 			// 

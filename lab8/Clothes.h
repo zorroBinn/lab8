@@ -10,11 +10,14 @@ private:
 	Int32 ClothesStatus;
 
 public:
-	Clothes(String^ Body, String^ Pants, String^ Shoes, Int32 ClothesStatus);
+	Clothes();
+	Clothes(String^ Body, String^ Pants, String^ Shoes);
 	String^ GetBody();
 	String^ GetPants();
 	String^ GetShoes();
 	Int32 GetClothesStatus();
 	void SewUpClothes();
+	void TearClothes();
+	void BuySuit();
 };
 
