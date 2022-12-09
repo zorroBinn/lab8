@@ -1,5 +1,10 @@
 #pragma once
 #include "newhuman.h"
+#include "Human.h"
+#include "Clothes.h"
+#include "MedicalCard.h"
+#include "Realty.h"
+#include "Work.h"
 
 namespace lab8 {
 
@@ -9,12 +14,18 @@ namespace lab8 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
 
 	/// <summary>
 	/// —‚Ó‰Í‡ ‰Îˇ Game
 	/// </summary>
 	public ref class Game : public System::Windows::Forms::Form
 	{
+		Human^ character;
+		MedicalCard^ medcard;
+		Clothes^ clothes;
+		Realty^ realty;
+		Work^ work;
 	public:
 		Game(void)
 		{
@@ -22,6 +33,11 @@ namespace lab8 {
 			//
 			//TODO: ‰Ó·‡‚¸ÚÂ ÍÓ‰ ÍÓÌÒÚÛÍÚÓ‡
 			//
+			character = gcnew Human();
+			medcard = gcnew MedicalCard();
+			clothes = gcnew Clothes();
+			realty = gcnew Realty();
+			work = gcnew Work();
 		}
 
 	protected:
@@ -53,7 +69,8 @@ namespace lab8 {
 	private: System::Windows::Forms::GroupBox^ groupBoxhuman;
 	private: System::Windows::Forms::Label^ humanbalance;
 	private: System::Windows::Forms::Label^ labelhumanbalance;
-	private: System::Windows::Forms::Label^ labelage;
+	private: System::Windows::Forms::Label^ humanage;
+
 	private: System::Windows::Forms::Label^ labelhumanage;
 	private: System::Windows::Forms::Label^ humansex;
 	private: System::Windows::Forms::Label^ labelhumansex;
@@ -86,7 +103,8 @@ namespace lab8 {
 	private: System::Windows::Forms::Label^ labelhealth;
 	private: System::Windows::Forms::Label^ imt;
 	private: System::Windows::Forms::Label^ labelimt;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ sewupbutton;
+
 	private: System::Windows::Forms::Label^ mdheight;
 	private: System::Windows::Forms::Label^ labelmdheight;
 	private: System::Windows::Forms::Label^ mdweight;
@@ -152,9 +170,9 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->‡·ÓÚ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -173,7 +191,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->groupBoxhuman = (gcnew System::Windows::Forms::GroupBox());
 			this->humanbalance = (gcnew System::Windows::Forms::Label());
 			this->labelhumanbalance = (gcnew System::Windows::Forms::Label());
-			this->labelage = (gcnew System::Windows::Forms::Label());
+			this->humanage = (gcnew System::Windows::Forms::Label());
 			this->labelhumanage = (gcnew System::Windows::Forms::Label());
 			this->humansex = (gcnew System::Windows::Forms::Label());
 			this->labelhumansex = (gcnew System::Windows::Forms::Label());
@@ -195,7 +213,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelhealth = (gcnew System::Windows::Forms::Label());
 			this->imt = (gcnew System::Windows::Forms::Label());
 			this->labelimt = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->sewupbutton = (gcnew System::Windows::Forms::Button());
 			this->mdheight = (gcnew System::Windows::Forms::Label());
 			this->labelmdheight = (gcnew System::Windows::Forms::Label());
 			this->mdweight = (gcnew System::Windows::Forms::Label());
@@ -204,6 +222,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelmdname = (gcnew System::Windows::Forms::Label());
 			this->labelmedicalcard = (gcnew System::Windows::Forms::Label());
 			this->groupBoxclothes = (gcnew System::Windows::Forms::GroupBox());
+			this->buysuitbutton = (gcnew System::Windows::Forms::Button());
 			this->dataGridViewclothes = (gcnew System::Windows::Forms::DataGridView());
 			this->parametr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -221,7 +240,6 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->realtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealty = (gcnew System::Windows::Forms::Label());
-			this->buysuitbutton = (gcnew System::Windows::Forms::Button());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -428,7 +446,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->groupBoxhuman->BackColor = System::Drawing::Color::NavajoWhite;
 			this->groupBoxhuman->Controls->Add(this->humanbalance);
 			this->groupBoxhuman->Controls->Add(this->labelhumanbalance);
-			this->groupBoxhuman->Controls->Add(this->labelage);
+			this->groupBoxhuman->Controls->Add(this->humanage);
 			this->groupBoxhuman->Controls->Add(this->labelhumanage);
 			this->groupBoxhuman->Controls->Add(this->humansex);
 			this->groupBoxhuman->Controls->Add(this->labelhumansex);
@@ -468,20 +486,20 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelhumanbalance->TabIndex = 9;
 			this->labelhumanbalance->Text = L"¡‡Î‡ÌÒ";
 			// 
-			// labelage
+			// humanage
 			// 
-			this->labelage->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+			this->humanage->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->labelage->AutoSize = true;
-			this->labelage->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->humanage->AutoSize = true;
+			this->humanage->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelage->Location = System::Drawing::Point(107, 135);
-			this->labelage->Name = L"labelage";
-			this->labelage->Size = System::Drawing::Size(39, 17);
-			this->labelage->TabIndex = 8;
-			this->labelage->Text = L"√Œƒ";
-			this->labelage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->humanage->Location = System::Drawing::Point(107, 135);
+			this->humanage->Name = L"humanage";
+			this->humanage->Size = System::Drawing::Size(39, 17);
+			this->humanage->TabIndex = 8;
+			this->humanage->Text = L"√Œƒ";
+			this->humanage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// labelhumanage
 			// 
@@ -687,7 +705,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->groupBoxmd->Controls->Add(this->labelhealth);
 			this->groupBoxmd->Controls->Add(this->imt);
 			this->groupBoxmd->Controls->Add(this->labelimt);
-			this->groupBoxmd->Controls->Add(this->button1);
+			this->groupBoxmd->Controls->Add(this->sewupbutton);
 			this->groupBoxmd->Controls->Add(this->mdheight);
 			this->groupBoxmd->Controls->Add(this->labelmdheight);
 			this->groupBoxmd->Controls->Add(this->mdweight);
@@ -765,20 +783,20 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelimt->TabIndex = 13;
 			this->labelimt->Text = L"»Ã“";
 			// 
-			// button1
+			// sewupbutton
 			// 
-			this->button1->BackColor = System::Drawing::Color::Goldenrod;
-			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->sewupbutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->sewupbutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->sewupbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			this->sewupbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(65, 275);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(124, 52);
-			this->button1->TabIndex = 12;
-			this->button1->Text = L"ÀÂ˜ËÚ¸Òˇ(10$)";
-			this->button1->UseVisualStyleBackColor = false;
+			this->sewupbutton->Location = System::Drawing::Point(65, 275);
+			this->sewupbutton->Name = L"sewupbutton";
+			this->sewupbutton->Size = System::Drawing::Size(124, 52);
+			this->sewupbutton->TabIndex = 12;
+			this->sewupbutton->Text = L"ÀÂ˜ËÚ¸Òˇ(10$)";
+			this->sewupbutton->UseVisualStyleBackColor = false;
 			// 
 			// mdheight
 			// 
@@ -883,6 +901,21 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->groupBoxclothes->TabStop = false;
 			this->groupBoxclothes->Visible = false;
 			// 
+			// buysuitbutton
+			// 
+			this->buysuitbutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->buysuitbutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->buysuitbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->buysuitbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->buysuitbutton->Location = System::Drawing::Point(55, 226);
+			this->buysuitbutton->Name = L"buysuitbutton";
+			this->buysuitbutton->Size = System::Drawing::Size(145, 43);
+			this->buysuitbutton->TabIndex = 14;
+			this->buysuitbutton->Text = L" ÛÔËÚ¸ ÍÓÒÚ˛Ï(1000$)";
+			this->buysuitbutton->UseVisualStyleBackColor = false;
+			// 
 			// dataGridViewclothes
 			// 
 			this->dataGridViewclothes->AllowUserToAddRows = false;
@@ -892,15 +925,15 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->dataGridViewclothes->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Cornsilk;
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle4->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->parametr,
@@ -916,8 +949,8 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			// 
 			// parametr
 			// 
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::NavajoWhite;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle5->BackColor = System::Drawing::Color::NavajoWhite;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle5;
 			this->parametr->Frozen = true;
 			this->parametr->HeaderText = L"œ‡‡ÏÂÚ";
 			this->parametr->MaxInputLength = 30;
@@ -928,8 +961,8 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			// 
 			// cloth
 			// 
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::NavajoWhite;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6->BackColor = System::Drawing::Color::NavajoWhite;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle6;
 			this->cloth->Frozen = true;
 			this->cloth->HeaderText = L"Œ‰ÂÊ‰‡";
 			this->cloth->MaxInputLength = 30;
@@ -1129,21 +1162,6 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelrealty->TabIndex = 2;
 			this->labelrealty->Text = L"»ÏÛ˘ÂÒÚ‚Ó";
 			// 
-			// buysuitbutton
-			// 
-			this->buysuitbutton->BackColor = System::Drawing::Color::Goldenrod;
-			this->buysuitbutton->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->buysuitbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->buysuitbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->buysuitbutton->Location = System::Drawing::Point(55, 226);
-			this->buysuitbutton->Name = L"buysuitbutton";
-			this->buysuitbutton->Size = System::Drawing::Size(145, 43);
-			this->buysuitbutton->TabIndex = 14;
-			this->buysuitbutton->Text = L" ÛÔËÚ¸ ÍÓÒÚ˛Ï(1000$)";
-			this->buysuitbutton->UseVisualStyleBackColor = false;
-			// 
 			// Game
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1198,6 +1216,10 @@ private: System::Void ÔÂÒÓÌ‡ÊToolStripMenuItem_Click(System::Object^ sender, Sy
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
 	this->groupBoxhuman->Visible = true;
+	this->humanname->Text = character->GetName();
+	this->humansex->Text = character->GetSex();
+	this->humanage->Text = Convert::ToString(character->GetAge());
+	this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
 }
 private: System::Void Á‰ÓÓ‚¸ÂToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
@@ -1205,6 +1227,11 @@ private: System::Void Á‰ÓÓ‚¸ÂToolStripMenuItem_Click(System::Object^ sender, Sy
 	this->groupBoxclothes->Visible = false;
 	this->groupBoxrealty->Visible = false;
 	this->groupBoxmd->Visible = true;
+	this->mdname->Text = character->GetName();
+	this->mdweight->Text = Convert::ToString(medcard->GetWeight());
+	this->mdheight->Text = Convert::ToString(medcard->GetHeight());
+	Double IMT = medcard->GetWeight() / (medcard->GetHeight() * medcard->GetHeight() / 10000);
+	this->imt->Text = Convert::ToString(IMT);
 }
 private: System::Void ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
@@ -1212,6 +1239,8 @@ private: System::Void ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem_Click(System::Object^ sender, S
 	this->groupBoxmd->Visible = false;
 	this->groupBoxclothes->Visible = false;
 	this->groupBoxrealty->Visible = true;
+	this->realtyhouse->Text = realty->GetHousing();
+	this->realtycar->Text = realty->GetVehicle();
 }
 private: System::Void ‡·ÓÚ‡ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
@@ -1219,6 +1248,9 @@ private: System::Void ‡·ÓÚ‡ToolStripMenuItem_Click(System::Object^ sender, Syst
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
 	this->groupBoxwork->Visible = true;
+	this->workname->Text = character->GetName();
+	this->namework->Text = work->GetNamework();
+	this->payment->Text = Convert::ToString(work->GetPayment());
 }
 private: System::Void Ó‰ÂÊ‰‡ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;

@@ -1,8 +1,15 @@
 #include "Human.h"
 
+Human::Human()
+{
+    this->Age = 0;
+    this->Name = L"test";
+    this->Moneybalance = 1000;
+    this->Sex = L"test";
+}
+
 Human::Human(Int32 age, String^ name, String^ sex)
 {
-    throw gcnew System::NotImplementedException();
     this->Age = age;
     this->Name = name;
     this->Sex = sex;
@@ -21,19 +28,16 @@ Int32 Human::GetMoneybalance()
 
 String^ Human::GetName()
 {
-    throw gcnew System::NotImplementedException();
     return this->Name;
 }
 
 String^ Human::GetSex()
 {
-    throw gcnew System::NotImplementedException();
     return this->Sex;
 }
 
 void Human::ChangeMoney(Int32 money)
 {
-    throw gcnew System::NotImplementedException();
     this->Moneybalance += money;
 }
 

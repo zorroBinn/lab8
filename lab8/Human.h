@@ -1,5 +1,6 @@
 #pragma once
-using namespace System;
+using System::String;
+using System::Int32;
 
 ref class Human
 {
@@ -10,6 +11,7 @@ private:
 	String^ Sex; //Пол
 
 public:
+	Human();
 	Human(Int32 age, String^ name, String^ sex);
 	Int32 GetAge();
 	Int32 GetMoneybalance();

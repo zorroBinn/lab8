@@ -1,5 +1,5 @@
 #pragma once
-using namespace System;
+using System::Int32;
 
 ref class MedicalCard
 {

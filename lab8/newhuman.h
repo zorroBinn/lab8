@@ -2,7 +2,7 @@
 
 namespace lab8 {
 
-	using namespace System;
+	//using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;

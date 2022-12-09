@@ -1,5 +1,6 @@
 #pragma 
-using namespace System;
+using System::String;
+using System::Int32;
 
 ref class Clothes
 {

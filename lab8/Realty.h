@@ -1,5 +1,5 @@
 #pragma once
-using namespace System;
+using System::String;
 
 ref class Realty
 {
