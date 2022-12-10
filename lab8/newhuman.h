@@ -289,7 +289,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			MessageBox::Show("Не все поля заполнены!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 	else {
-		StreamWriter^ f = gcnew StreamWriter("temp.txt", true);
+		StreamWriter^ f = gcnew StreamWriter("temp.txt", false);
 		f->WriteLine(this->textBoxname->Text);
 		if (this->checkBoxman->Checked == true) {
 			f->WriteLine("М");
@@ -298,8 +298,16 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			f->WriteLine("Ж");
 		}
 		f->WriteLine(this->comboBoxage->Text);
+		f->WriteLine(1000);
 		f->WriteLine(this->numericUpDownweight->Text);
 		f->WriteLine(this->numericUpDownheight->Text);
+		f->WriteLine("Безработный");
+		f->WriteLine(1500);
+		f->WriteLine("Майка");
+		f->WriteLine("Трусы");
+		f->WriteLine("Тапки");
+		f->WriteLine("Гараж");
+		f->WriteLine("Велик");
 		f->Close();
 		MessageBox::Show("Персонаж создан!", "Готово!", MessageBoxButtons::OK, MessageBoxIcon::None);
 		this->Close();
