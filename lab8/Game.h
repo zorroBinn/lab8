@@ -25,7 +25,9 @@ namespace lab8 {
 		MedicalCard^ medcard;
 		Clothes^ clothes;
 		Realty^ realty;
-		Work^ work;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ parametr;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ cloth;
+		   Work^ work;
 	public:
 		Game(void)
 		{
@@ -56,6 +58,12 @@ namespace lab8 {
 					realty->SetHousing(f->ReadLine());
 					realty->SetVehicle(f->ReadLine());
 					f->Close();
+					this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+					this->infoname->Text = character->GetName();
+					this->infohealthpercent->Text = Convert::ToString(medcard->GetHealthStatus());
+					this->menu->Visible = true;
+					this->Infobox->Visible = true;
+					this->newhumanbutton->Visible = false;
 				}
 				catch (Exception^)
 				{
@@ -170,8 +178,8 @@ private: System::Windows::Forms::Label^ infohealthpercent;
 private: System::Windows::Forms::Label^ infomoneybalance;
 private: System::Windows::Forms::GroupBox^ groupBoxclothes;
 private: System::Windows::Forms::DataGridView^ dataGridViewclothes;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ parametr;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ cloth;
+
+
 private: System::Windows::Forms::Button^ buttonsewup;
 private: System::Windows::Forms::Label^ labelclothes;
 private: System::Windows::Forms::Button^ buysuitbutton;
@@ -197,6 +205,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
@@ -250,8 +259,6 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->groupBoxclothes = (gcnew System::Windows::Forms::GroupBox());
 			this->buysuitbutton = (gcnew System::Windows::Forms::Button());
 			this->dataGridViewclothes = (gcnew System::Windows::Forms::DataGridView());
-			this->parametr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->buttonsewup = (gcnew System::Windows::Forms::Button());
 			this->labelclothes = (gcnew System::Windows::Forms::Label());
 			this->groupBoxrealty = (gcnew System::Windows::Forms::GroupBox());
@@ -266,6 +273,8 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->realtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealty = (gcnew System::Windows::Forms::Label());
+			this->parametr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -296,6 +305,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->menu->Size = System::Drawing::Size(630, 70);
 			this->menu->TabIndex = 0;
 			this->menu->Text = L"Ìåíþ";
+			this->menu->Visible = false;
 			// 
 			// ðàáîòàToolStripMenuItem
 			// 
@@ -951,6 +961,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->dataGridViewclothes->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
+			this->dataGridViewclothes->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Cornsilk;
 			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -961,41 +972,28 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
 			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridViewclothes->ColumnHeadersVisible = false;
 			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->parametr,
 					this->cloth
 			});
-			this->dataGridViewclothes->GridColor = System::Drawing::Color::Goldenrod;
-			this->dataGridViewclothes->Location = System::Drawing::Point(6, 41);
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle4;
+			this->dataGridViewclothes->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->dataGridViewclothes->Location = System::Drawing::Point(6, 81);
 			this->dataGridViewclothes->Name = L"dataGridViewclothes";
 			this->dataGridViewclothes->ReadOnly = true;
 			this->dataGridViewclothes->RowHeadersVisible = false;
-			this->dataGridViewclothes->Size = System::Drawing::Size(247, 179);
+			this->dataGridViewclothes->Size = System::Drawing::Size(247, 139);
 			this->dataGridViewclothes->TabIndex = 13;
-			// 
-			// parametr
-			// 
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::NavajoWhite;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
-			this->parametr->Frozen = true;
-			this->parametr->HeaderText = L"Ïàðàìåòð";
-			this->parametr->MaxInputLength = 30;
-			this->parametr->Name = L"parametr";
-			this->parametr->ReadOnly = true;
-			this->parametr->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->parametr->Width = 124;
-			// 
-			// cloth
-			// 
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::NavajoWhite;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
-			this->cloth->Frozen = true;
-			this->cloth->HeaderText = L"Îäåæäà";
-			this->cloth->MaxInputLength = 30;
-			this->cloth->Name = L"cloth";
-			this->cloth->ReadOnly = true;
-			this->cloth->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->cloth->Width = 124;
 			// 
 			// buttonsewup
 			// 
@@ -1188,6 +1186,30 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelrealty->TabIndex = 2;
 			this->labelrealty->Text = L"Èìóùåñòâî";
 			// 
+			// parametr
+			// 
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::White;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
+			this->parametr->Frozen = true;
+			this->parametr->HeaderText = L"Ïàðàìåòð";
+			this->parametr->MaxInputLength = 30;
+			this->parametr->Name = L"parametr";
+			this->parametr->ReadOnly = true;
+			this->parametr->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->parametr->Width = 124;
+			// 
+			// cloth
+			// 
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::White;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
+			this->cloth->Frozen = true;
+			this->cloth->HeaderText = L"Îäåæäà";
+			this->cloth->MaxInputLength = 30;
+			this->cloth->Name = L"cloth";
+			this->cloth->ReadOnly = true;
+			this->cloth->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->cloth->Width = 124;
+			// 
 			// Game
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1234,6 +1256,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 private: System::Void newhumanbutton_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->newhumanbutton->Visible = false;
 	this->Infobox->Visible = true;
+	this->menu->Visible = true;
 	newhuman^ nh = gcnew newhuman();
 	nh->Show();
 }
@@ -1285,6 +1308,18 @@ private: System::Void îäåæäàToolStripMenuItem_Click(System::Object^ sender, Syst
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
 	this->groupBoxclothes->Visible = true;
+	this->dataGridViewclothes->Rows->Add();
+	this->dataGridViewclothes->Rows->Add();
+	this->dataGridViewclothes->Rows->Add();
+	this->dataGridViewclothes->Rows->Add();
+	this->dataGridViewclothes->Rows[0]->Cells[0]->Value = L"Âåðõ";
+	this->dataGridViewclothes->Rows[1]->Cells[0]->Value = L"Øòàíû";
+	this->dataGridViewclothes->Rows[2]->Cells[0]->Value = L"Îáóâü";
+	this->dataGridViewclothes->Rows[3]->Cells[0]->Value = L"Ñîñòîÿíèå îäåæäû";
+	this->dataGridViewclothes->Rows[0]->Cells[1]->Value = clothes->GetBody();
+	this->dataGridViewclothes->Rows[1]->Cells[1]->Value = clothes->GetPants();
+	this->dataGridViewclothes->Rows[2]->Cells[1]->Value = clothes->GetShoes();
+	this->dataGridViewclothes->Rows[3]->Cells[1]->Value = clothes->GetClothesStatus();
 }
 private: System::Void checkBoxhouse_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (this->checkBoxhouse->Checked == true) {
@@ -1319,22 +1354,24 @@ private: System::Void checkBoxcar_CheckedChanged(System::Object^ sender, System:
 private: System::Void Game_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	System::Windows::Forms::DialogResult result = MessageBox::Show("Âû óâðåíû, ÷òî õîòèòå âûéòè?", "Âíèìàíèå!", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
 	if (result == System::Windows::Forms::DialogResult::Yes) {
-		StreamWriter^ f = gcnew StreamWriter("temp.txt", false);
-		f->WriteLine(character->GetName());
-		f->WriteLine(character->GetSex());
-		f->WriteLine(character->GetAge());
-		f->WriteLine(character->GetMoneybalance());
-		f->WriteLine(medcard->GetWeight());
-		f->WriteLine(medcard->GetHeight());
-		f->WriteLine(work->GetNamework());
-		f->WriteLine(work->GetPayment());
-		f->WriteLine(clothes->GetBody());
-		f->WriteLine(clothes->GetPants());
-		f->WriteLine(clothes->GetShoes());
-		f->WriteLine(realty->GetHousing());
-		f->WriteLine(realty->GetVehicle());
-		f->Close();
-		this->Close();
+		if (character->GetAge() != 0) {
+			StreamWriter^ f = gcnew StreamWriter("temp.txt", false);
+			f->WriteLine(character->GetName());
+			f->WriteLine(character->GetSex());
+			f->WriteLine(character->GetAge());
+			f->WriteLine(character->GetMoneybalance());
+			f->WriteLine(medcard->GetWeight());
+			f->WriteLine(medcard->GetHeight());
+			f->WriteLine(work->GetNamework());
+			f->WriteLine(work->GetPayment());
+			f->WriteLine(clothes->GetBody());
+			f->WriteLine(clothes->GetPants());
+			f->WriteLine(clothes->GetShoes());
+			f->WriteLine(realty->GetHousing());
+			f->WriteLine(realty->GetVehicle());
+			f->Close();
+		}
+		return;
 	}
 	else {
 		e->Cancel = true;
