@@ -14,9 +14,13 @@ public:
 	Human();
 	Human(Int32 age, String^ name, String^ sex);
 	Int32 GetAge();
+	void SetAge(Int32 age);
 	Int32 GetMoneybalance();
+	void SetMoneyBalance(Int32 moneybalance);
 	String^ GetName();
+	void SetName(String^ name);
 	String^ GetSex();
+	void SetSex(String^ sex);
 	void ChangeMoney(Int32 money);
 };
 

@@ -38,6 +38,32 @@ namespace lab8 {
 			clothes = gcnew Clothes();
 			realty = gcnew Realty();
 			work = gcnew Work();
+			if (File::Exists("temp.txt") == true) {
+				try
+				{
+					StreamReader^ f = File::OpenText("temp.txt");
+					character->SetName(f->ReadLine());
+					character->SetSex(f->ReadLine());
+					character->SetAge(Convert::ToInt32(f->ReadLine()));
+					character->SetMoneyBalance(Convert::ToInt32(f->ReadLine()));
+					medcard->SetWeight(Convert::ToInt32(f->ReadLine()));
+					medcard->SetHeight(Convert::ToInt32(f->ReadLine()));
+					work->SetNamework(f->ReadLine());
+					work->SetPayment(Convert::ToInt32(f->ReadLine()));
+					clothes->SetBody(f->ReadLine());
+					clothes->SetPants(f->ReadLine());
+					clothes->SetShoes(f->ReadLine());
+					realty->SetHousing(f->ReadLine());
+					realty->SetVehicle(f->ReadLine());
+					f->Close();
+				}
+				catch (Exception^)
+				{
+					MessageBox::Show("Ошибка открытия файла!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					this->Close();
+				}
+			}
+
 		}
 
 	protected:
@@ -1309,6 +1335,9 @@ private: System::Void Game_FormClosing(System::Object^ sender, System::Windows::
 		f->WriteLine(realty->GetVehicle());
 		f->Close();
 		this->Close();
+	}
+	else {
+		e->Cancel = true;
 	}
 }
 };

@@ -24,16 +24,31 @@ String^ Clothes::GetBody()
     return this->Body;
 }
 
+void Clothes::SetBody(String^ body)
+{
+    this->Body = body;
+}
+
 String^ Clothes::GetPants()
 {
     
     return this->Pants;
 }
 
+void Clothes::SetPants(String^ pants)
+{
+    this->Pants = pants;
+}
+
 String^ Clothes::GetShoes()
 {
     
     return this->Shoes;
+}
+
+void Clothes::SetShoes(String^ shoes)
+{
+    this->Shoes = shoes;
 }
 
 Int32 Clothes::GetClothesStatus()
