@@ -1297,8 +1297,7 @@ private: System::Void çäîðîâüåToolStripMenuItem_Click(System::Object^ sender, Sy
 	this->mdweight->Text = Convert::ToString(medcard->GetWeight());
 	this->mdheight->Text = Convert::ToString(medcard->GetHeight());
 	Double IMT = (medcard->GetWeight()+0.0) / (medcard->GetHeight() * medcard->GetHeight() / 10000);
-	Double round = (IMT * 10) / 10;
-	this->imt->Text = Convert::ToString(round);
+	this->imt->Text = Convert::ToString(IMT);
 }
 private: System::Void èìóùåñòâîToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
