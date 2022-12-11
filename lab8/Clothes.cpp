@@ -56,6 +56,11 @@ Int32 Clothes::GetClothesStatus()
     return this->ClothesStatus;
 }
 
+void Clothes::SetClothesStatus(Int32 status)
+{
+    this->ClothesStatus = status;
+}
+
 void Clothes::SewUpClothes()
 {
     

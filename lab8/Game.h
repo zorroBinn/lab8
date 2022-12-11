@@ -64,6 +64,17 @@ namespace lab8 {
 					this->menu->Visible = true;
 					this->Infobox->Visible = true;
 					this->newhumanbutton->Visible = false;
+					this->dataGridViewclothes->Rows->Add();
+					this->dataGridViewclothes->Rows->Add();
+					this->dataGridViewclothes->Rows->Add();
+					this->dataGridViewclothes->Rows->Add();
+					this->dataGridViewclothes->Rows[0]->Cells[0]->Value = L"Верх";
+					this->dataGridViewclothes->Rows[1]->Cells[0]->Value = L"Штаны";
+					this->dataGridViewclothes->Rows[2]->Cells[0]->Value = L"Обувь";
+					this->dataGridViewclothes->Rows[3]->Cells[0]->Value = L"Состояние одежды";
+					if (clothes->GetShoes() == "Туфли") {
+						this->buysuitbutton->Visible = false;
+					}
 				}
 				catch (Exception^)
 				{
@@ -137,7 +148,8 @@ namespace lab8 {
 	private: System::Windows::Forms::Label^ labelhealth;
 	private: System::Windows::Forms::Label^ imt;
 	private: System::Windows::Forms::Label^ labelimt;
-	private: System::Windows::Forms::Button^ sewupbutton;
+private: System::Windows::Forms::Button^ healthbutton;
+
 
 	private: System::Windows::Forms::Label^ mdheight;
 	private: System::Windows::Forms::Label^ labelmdheight;
@@ -204,10 +216,10 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->работаToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->имуществоToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -248,7 +260,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelhealth = (gcnew System::Windows::Forms::Label());
 			this->imt = (gcnew System::Windows::Forms::Label());
 			this->labelimt = (gcnew System::Windows::Forms::Label());
-			this->sewupbutton = (gcnew System::Windows::Forms::Button());
+			this->healthbutton = (gcnew System::Windows::Forms::Button());
 			this->mdheight = (gcnew System::Windows::Forms::Label());
 			this->labelmdheight = (gcnew System::Windows::Forms::Label());
 			this->mdweight = (gcnew System::Windows::Forms::Label());
@@ -259,6 +271,8 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->groupBoxclothes = (gcnew System::Windows::Forms::GroupBox());
 			this->buysuitbutton = (gcnew System::Windows::Forms::Button());
 			this->dataGridViewclothes = (gcnew System::Windows::Forms::DataGridView());
+			this->parametr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->buttonsewup = (gcnew System::Windows::Forms::Button());
 			this->labelclothes = (gcnew System::Windows::Forms::Label());
 			this->groupBoxrealty = (gcnew System::Windows::Forms::GroupBox());
@@ -273,8 +287,6 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->realtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealty = (gcnew System::Windows::Forms::Label());
-			this->parametr = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -389,11 +401,11 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			// infomoneybalance
 			// 
 			this->infomoneybalance->AutoSize = true;
-			this->infomoneybalance->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->infomoneybalance->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->infomoneybalance->Location = System::Drawing::Point(5, 34);
 			this->infomoneybalance->Name = L"infomoneybalance";
-			this->infomoneybalance->Size = System::Drawing::Size(47, 15);
+			this->infomoneybalance->Size = System::Drawing::Size(56, 19);
 			this->infomoneybalance->TabIndex = 20;
 			this->infomoneybalance->Text = L"Баланс";
 			// 
@@ -643,6 +655,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->workingbutton->TabIndex = 12;
 			this->workingbutton->Text = L"Работать";
 			this->workingbutton->UseVisualStyleBackColor = false;
+			this->workingbutton->Click += gcnew System::EventHandler(this, &Game::workingbutton_Click);
 			// 
 			// payment
 			// 
@@ -741,7 +754,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->groupBoxmd->Controls->Add(this->labelhealth);
 			this->groupBoxmd->Controls->Add(this->imt);
 			this->groupBoxmd->Controls->Add(this->labelimt);
-			this->groupBoxmd->Controls->Add(this->sewupbutton);
+			this->groupBoxmd->Controls->Add(this->healthbutton);
 			this->groupBoxmd->Controls->Add(this->mdheight);
 			this->groupBoxmd->Controls->Add(this->labelmdheight);
 			this->groupBoxmd->Controls->Add(this->mdweight);
@@ -819,20 +832,21 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelimt->TabIndex = 13;
 			this->labelimt->Text = L"ИМТ";
 			// 
-			// sewupbutton
+			// healthbutton
 			// 
-			this->sewupbutton->BackColor = System::Drawing::Color::Goldenrod;
-			this->sewupbutton->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->sewupbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->healthbutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->healthbutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->healthbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->sewupbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			this->healthbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->sewupbutton->Location = System::Drawing::Point(65, 275);
-			this->sewupbutton->Name = L"sewupbutton";
-			this->sewupbutton->Size = System::Drawing::Size(124, 52);
-			this->sewupbutton->TabIndex = 12;
-			this->sewupbutton->Text = L"Лечиться(10$)";
-			this->sewupbutton->UseVisualStyleBackColor = false;
+			this->healthbutton->Location = System::Drawing::Point(65, 275);
+			this->healthbutton->Name = L"healthbutton";
+			this->healthbutton->Size = System::Drawing::Size(124, 52);
+			this->healthbutton->TabIndex = 12;
+			this->healthbutton->Text = L"Лечиться(10$)";
+			this->healthbutton->UseVisualStyleBackColor = false;
+			this->healthbutton->Click += gcnew System::EventHandler(this, &Game::healthbutton_Click);
 			// 
 			// mdheight
 			// 
@@ -951,6 +965,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->buysuitbutton->TabIndex = 14;
 			this->buysuitbutton->Text = L"Купить костюм(1000$)";
 			this->buysuitbutton->UseVisualStyleBackColor = false;
+			this->buysuitbutton->Click += gcnew System::EventHandler(this, &Game::buysuitbutton_Click);
 			// 
 			// dataGridViewclothes
 			// 
@@ -962,38 +977,62 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
 			this->dataGridViewclothes->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Cornsilk;
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle5->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewclothes->ColumnHeadersVisible = false;
 			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->parametr,
 					this->cloth
 			});
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle8;
 			this->dataGridViewclothes->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->dataGridViewclothes->Location = System::Drawing::Point(6, 81);
 			this->dataGridViewclothes->Name = L"dataGridViewclothes";
 			this->dataGridViewclothes->ReadOnly = true;
 			this->dataGridViewclothes->RowHeadersVisible = false;
-			this->dataGridViewclothes->Size = System::Drawing::Size(247, 139);
+			this->dataGridViewclothes->Size = System::Drawing::Size(247, 137);
 			this->dataGridViewclothes->TabIndex = 13;
+			// 
+			// parametr
+			// 
+			dataGridViewCellStyle6->BackColor = System::Drawing::Color::White;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle6;
+			this->parametr->Frozen = true;
+			this->parametr->HeaderText = L"Параметр";
+			this->parametr->MaxInputLength = 30;
+			this->parametr->Name = L"parametr";
+			this->parametr->ReadOnly = true;
+			this->parametr->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->parametr->Width = 124;
+			// 
+			// cloth
+			// 
+			dataGridViewCellStyle7->BackColor = System::Drawing::Color::White;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle7;
+			this->cloth->Frozen = true;
+			this->cloth->HeaderText = L"Одежда";
+			this->cloth->MaxInputLength = 30;
+			this->cloth->Name = L"cloth";
+			this->cloth->ReadOnly = true;
+			this->cloth->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->cloth->Width = 124;
 			// 
 			// buttonsewup
 			// 
@@ -1009,6 +1048,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->buttonsewup->TabIndex = 12;
 			this->buttonsewup->Text = L"Починить одежду(5$)";
 			this->buttonsewup->UseVisualStyleBackColor = false;
+			this->buttonsewup->Click += gcnew System::EventHandler(this, &Game::buttonsewup_Click);
 			// 
 			// labelclothes
 			// 
@@ -1186,30 +1226,6 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelrealty->TabIndex = 2;
 			this->labelrealty->Text = L"Имущество";
 			// 
-			// parametr
-			// 
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::White;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
-			this->parametr->Frozen = true;
-			this->parametr->HeaderText = L"Параметр";
-			this->parametr->MaxInputLength = 30;
-			this->parametr->Name = L"parametr";
-			this->parametr->ReadOnly = true;
-			this->parametr->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->parametr->Width = 124;
-			// 
-			// cloth
-			// 
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::White;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
-			this->cloth->Frozen = true;
-			this->cloth->HeaderText = L"Одежда";
-			this->cloth->MaxInputLength = 30;
-			this->cloth->Name = L"cloth";
-			this->cloth->ReadOnly = true;
-			this->cloth->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->cloth->Width = 124;
-			// 
 			// Game
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1280,8 +1296,9 @@ private: System::Void здоровьеToolStripMenuItem_Click(System::Object^ sender, Sy
 	this->mdname->Text = character->GetName();
 	this->mdweight->Text = Convert::ToString(medcard->GetWeight());
 	this->mdheight->Text = Convert::ToString(medcard->GetHeight());
-	Double IMT = medcard->GetWeight() / (medcard->GetHeight() * medcard->GetHeight() / 10000);
-	this->imt->Text = Convert::ToString(IMT);
+	Double IMT = (medcard->GetWeight()+0.0) / (medcard->GetHeight() * medcard->GetHeight() / 10000);
+	Double round = (IMT * 10) / 10;
+	this->imt->Text = Convert::ToString(round);
 }
 private: System::Void имуществоToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->groupBoxhuman->Visible = false;
@@ -1308,14 +1325,6 @@ private: System::Void одеждаToolStripMenuItem_Click(System::Object^ sender, Syst
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
 	this->groupBoxclothes->Visible = true;
-	this->dataGridViewclothes->Rows->Add();
-	this->dataGridViewclothes->Rows->Add();
-	this->dataGridViewclothes->Rows->Add();
-	this->dataGridViewclothes->Rows->Add();
-	this->dataGridViewclothes->Rows[0]->Cells[0]->Value = L"Верх";
-	this->dataGridViewclothes->Rows[1]->Cells[0]->Value = L"Штаны";
-	this->dataGridViewclothes->Rows[2]->Cells[0]->Value = L"Обувь";
-	this->dataGridViewclothes->Rows[3]->Cells[0]->Value = L"Состояние одежды";
 	this->dataGridViewclothes->Rows[0]->Cells[1]->Value = clothes->GetBody();
 	this->dataGridViewclothes->Rows[1]->Cells[1]->Value = clothes->GetPants();
 	this->dataGridViewclothes->Rows[2]->Cells[1]->Value = clothes->GetShoes();
@@ -1375,6 +1384,73 @@ private: System::Void Game_FormClosing(System::Object^ sender, System::Windows::
 	}
 	else {
 		e->Cancel = true;
+	}
+}
+private: System::Void buysuitbutton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (character->GetMoneybalance() >= 1000) {
+		clothes->BuySuit();
+		clothes->SetClothesStatus(100);
+		this->dataGridViewclothes->Rows[0]->Cells[1]->Value = clothes->GetBody();
+		this->dataGridViewclothes->Rows[1]->Cells[1]->Value = clothes->GetPants();
+		this->dataGridViewclothes->Rows[2]->Cells[1]->Value = clothes->GetShoes();
+		this->dataGridViewclothes->Rows[3]->Cells[1]->Value = clothes->GetClothesStatus();
+		this->buysuitbutton->Visible = false;
+		character->ChangeMoney(-1000);
+		this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+		this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+	}
+	else {
+		MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+}
+private: System::Void buttonsewup_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (character->GetMoneybalance() >= 5) {
+		if (clothes->GetClothesStatus() < 100) {
+			clothes->SewUpClothes();
+			this->dataGridViewclothes->Rows[3]->Cells[1]->Value = clothes->GetClothesStatus();
+			character->ChangeMoney(-5);
+			this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+			this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+		}
+		else {
+			MessageBox::Show("Одежда как новенькая!", "Зачем?", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+	}
+	else {
+		MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+}
+private: System::Void workingbutton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (medcard->GetHealthStatus() > 0 && clothes->GetClothesStatus() > 0) {
+		character->ChangeMoney(work->GetPayment());
+		this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+		this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+		clothes->TearClothes();
+		medcard->DownStatus();
+		this->infohealthpercent->Text = Convert::ToString(medcard->GetHealthStatus());
+		this->health->Text = Convert::ToString(medcard->GetHealthStatus());
+		this->dataGridViewclothes->Rows[3]->Cells[1]->Value = clothes->GetClothesStatus();
+	}
+	else {
+		MessageBox::Show("Сейчас вы не можете работать!\nПроверьте состояние здоровья\nили состояние одежды.", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+}
+private: System::Void healthbutton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (character->GetMoneybalance() >= 10) {
+		if (medcard->GetHealthStatus() < 100) {
+			medcard->UpStatus();
+			character->ChangeMoney(-10);
+			this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+			this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+			this->infohealthpercent->Text = Convert::ToString(medcard->GetHealthStatus());
+			this->health->Text = Convert::ToString(medcard->GetHealthStatus());
+		}
+		else {
+			MessageBox::Show("Вы как огурчик!", "Зачем ? ", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+	}
+	else {
+		MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 	}
 }
 };

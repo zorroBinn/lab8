@@ -20,6 +20,7 @@ public:
 	String^ GetShoes();
 	void SetShoes(String^ shoes);
 	Int32 GetClothesStatus();
+	void SetClothesStatus(Int32 status);
 	void SewUpClothes();
 	void TearClothes();
 	void BuySuit();
