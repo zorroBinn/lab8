@@ -57,6 +57,7 @@ namespace lab8 {
 					clothes->SetShoes(f->ReadLine());
 					realty->SetHousing(f->ReadLine());
 					realty->SetVehicle(f->ReadLine());
+					character->SetLevel(Convert::ToInt32(f->ReadLine()));
 					f->Close();
 					this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
 					this->infoname->Text = character->GetName();
@@ -1086,9 +1087,9 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			// 
 			this->comboBoxrealtycar->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBoxrealtycar->FormattingEnabled = true;
-			this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
-				L"Велосипед(25 000)", L"Мотоцикл(200 000)",
-					L"Автомобиль(600 000)", L"Ламба(9 000 000)"
+			this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+				L"Мотоцикл(200 000)", L"Автомобиль(600 000)",
+					L"Ламба(9 000 000)"
 			});
 			this->comboBoxrealtycar->Location = System::Drawing::Point(18, 226);
 			this->comboBoxrealtycar->Name = L"comboBoxrealtycar";
@@ -1126,9 +1127,9 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			// 
 			this->comboBoxrealtyhouse->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBoxrealtyhouse->FormattingEnabled = true;
-			this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+			this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
 				L"Квартира(3 000 000)", L"Коттедж(7 000 000)",
-					L"Вилла(20 000 000)", L"Дворец(100 000 000)"
+					L"Вилла(20 000 000)"
 			});
 			this->comboBoxrealtyhouse->Location = System::Drawing::Point(18, 226);
 			this->comboBoxrealtyhouse->Name = L"comboBoxrealtyhouse";
@@ -1151,6 +1152,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->buybutton->Text = L"Купить";
 			this->buybutton->UseVisualStyleBackColor = false;
 			this->buybutton->Visible = false;
+			this->buybutton->Click += gcnew System::EventHandler(this, &Game::buybutton_Click);
 			// 
 			// labelrealtybuy
 			// 
@@ -1377,6 +1379,7 @@ private: System::Void Game_FormClosing(System::Object^ sender, System::Windows::
 			f->WriteLine(clothes->GetShoes());
 			f->WriteLine(realty->GetHousing());
 			f->WriteLine(realty->GetVehicle());
+			f->WriteLine(character->GetLevel());
 			f->Close();
 		}
 		return;
@@ -1429,6 +1432,46 @@ private: System::Void workingbutton_Click(System::Object^ sender, System::EventA
 		this->infohealthpercent->Text = Convert::ToString(medcard->GetHealthStatus());
 		this->health->Text = Convert::ToString(medcard->GetHealthStatus());
 		this->dataGridViewclothes->Rows[3]->Cells[1]->Value = clothes->GetClothesStatus();
+		if (character->GetMoneybalance() > 100000000 && character->GetLevel() < 4) {
+			if (work->GetNamework() != "Магнат") {
+				MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			work->SetNamework("Магнат");
+			work->SetPayment(900000);
+			character->LevelUp();
+			this->namework->Text = work->GetNamework();
+			this->payment->Text = Convert::ToString(work->GetPayment());
+		}
+		if (character->GetMoneybalance() > 10000000 && character->GetLevel() < 3) {
+			if (work->GetNamework() != "Бизнесмен") {
+				MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			work->SetNamework("Бизнесмен");
+			work->SetPayment(185000);
+			character->LevelUp();
+			this->namework->Text = work->GetNamework();
+			this->payment->Text = Convert::ToString(work->GetPayment());
+		}
+		if (character->GetMoneybalance() > 1000000 && character->GetLevel() < 2) {
+			if (work->GetNamework() != "Глава отдела") {
+				MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			work->SetNamework("Глава отдела");
+			work->SetPayment(70000);
+			character->LevelUp();
+			this->namework->Text = work->GetNamework();
+			this->payment->Text = Convert::ToString(work->GetPayment());
+		}
+		if (character->GetMoneybalance() > 100000 && character->GetLevel() < 1) {
+			if (work->GetNamework() != "Кассир") {
+				MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			work->SetNamework("Кассир");
+			work->SetPayment(13000);
+			character->LevelUp();
+			this->namework->Text = work->GetNamework();
+			this->payment->Text = Convert::ToString(work->GetPayment());
+		}
 	}
 	else {
 		MessageBox::Show("Сейчас вы не можете работать!\nПроверьте состояние здоровья\nили состояние одежды.", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -1450,6 +1493,84 @@ private: System::Void healthbutton_Click(System::Object^ sender, System::EventAr
 	}
 	else {
 		MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+}
+private: System::Void buybutton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->checkBoxhouse->Checked == true) {
+		if (this->comboBoxrealtyhouse->Text == "Квартира(3 000 000)") {
+			if (character->GetMoneybalance() >= 3000000) {
+				realty->SetHousing(this->comboBoxrealtyhouse->Text);
+				character->ChangeMoney(-3000000);
+				this->realtyhouse->Text = realty->GetHousing();
+				this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+				this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+			}
+			else {
+				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			}
+		}
+		if (this->comboBoxrealtyhouse->Text == "Коттедж(7 000 000)") {
+			if (character->GetMoneybalance() >= 7000000) {
+				realty->SetHousing(this->comboBoxrealtyhouse->Text);
+				character->ChangeMoney(-7000000);
+				this->realtyhouse->Text = realty->GetHousing();
+				this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+				this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+			}
+			else {
+				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			}
+		}
+		if (this->comboBoxrealtyhouse->Text == "Вилла(20 000 000)") {
+			if (character->GetMoneybalance() >= 20000000) {
+				realty->SetHousing(this->comboBoxrealtyhouse->Text);
+				character->ChangeMoney(-20000000);
+				this->realtyhouse->Text = realty->GetHousing();
+				this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+				this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+			}
+			else {
+				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			}
+		}
+	}
+	else {
+		if (this->comboBoxrealtycar->Text == "Мотоцикл(200 000)") {
+			if (character->GetMoneybalance() >= 200000) {
+				realty->SetVehicle(this->comboBoxrealtycar->Text);
+				character->ChangeMoney(-200000);
+				this->realtycar->Text = realty->GetVehicle();
+				this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+				this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+			}
+			else {
+				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			}
+		}
+		if (this->comboBoxrealtycar->Text == "Автомобиль(600 000)") {
+			if (character->GetMoneybalance() >= 600000) {
+				realty->SetVehicle(this->comboBoxrealtycar->Text);
+				character->ChangeMoney(-600000);
+				this->realtycar->Text = realty->GetVehicle();
+				this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+				this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+			}
+			else {
+				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			}
+		}
+		if (this->comboBoxrealtycar->Text == "Ламба(9 000 000)") {
+			if (character->GetMoneybalance() >= 9000000) {
+				realty->SetVehicle(this->comboBoxrealtycar->Text);
+				character->ChangeMoney(-9000000);
+				this->realtycar->Text = realty->GetVehicle();
+				this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+				this->humanbalance->Text = Convert::ToString(character->GetMoneybalance());
+			}
+			else {
+				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			}
+		}
 	}
 }
 };

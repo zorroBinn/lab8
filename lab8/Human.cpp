@@ -6,6 +6,7 @@ Human::Human()
     this->Name = L"test";
     this->Moneybalance = 1000;
     this->Sex = L"test";
+    this->Level = 0;
 }
 
 Human::Human(Int32 age, String^ name, String^ sex)
@@ -14,6 +15,7 @@ Human::Human(Int32 age, String^ name, String^ sex)
     this->Name = name;
     this->Sex = sex;
     this->Moneybalance = 1000;
+    this->Level = 0;
 }
 
 Int32 Human::GetAge()
@@ -54,6 +56,21 @@ String^ Human::GetSex()
 void Human::SetSex(String^ sex)
 {
     this->Sex = sex;
+}
+
+Int32 Human::GetLevel()
+{
+    return this->Level;
+}
+
+void Human::SetLevel(Int32 level)
+{
+    this->Level = level;
+}
+
+void Human::LevelUp()
+{
+    this->Level++;
 }
 
 void Human::ChangeMoney(Int32 money)

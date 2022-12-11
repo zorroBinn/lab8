@@ -76,7 +76,7 @@ void Clothes::TearClothes()
 {
     
     if (this->ClothesStatus > 0) {
-        this->ClothesStatus -= 15;
+        this->ClothesStatus -= 7;
         if (this->ClothesStatus < 0) {
             this->ClothesStatus = 0;
         }

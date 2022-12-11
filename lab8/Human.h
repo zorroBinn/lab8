@@ -9,6 +9,7 @@ private:
 	Int32 Moneybalance; //Игровой баланс
 	String^ Name; //Имя
 	String^ Sex; //Пол
+	Int32 Level;
 
 public:
 	Human();
@@ -21,6 +22,9 @@ public:
 	void SetName(String^ name);
 	String^ GetSex();
 	void SetSex(String^ sex);
+	Int32 GetLevel();
+	void SetLevel(Int32 level);
+	void LevelUp();
 	void ChangeMoney(Int32 money);
 };
 

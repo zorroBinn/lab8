@@ -308,6 +308,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		f->WriteLine("Тапки");
 		f->WriteLine("Гараж");
 		f->WriteLine("Велик");
+		f->WriteLine(0);
 		f->Close();
 		MessageBox::Show("Персонаж создан!", "Готово!", MessageBoxButtons::OK, MessageBoxIcon::None);
 		this->Close();
