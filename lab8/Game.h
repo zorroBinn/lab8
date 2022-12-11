@@ -27,6 +27,7 @@ namespace lab8 {
 		Realty^ realty;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ parametr;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ cloth;
+	private: System::Windows::Forms::Button^ buttonload;
 		   Work^ work;
 	public:
 		Game(void)
@@ -217,10 +218,10 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->ðàáîòàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->èìóùåñòâîToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -288,6 +289,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->realtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealtyhouse = (gcnew System::Windows::Forms::Label());
 			this->labelrealty = (gcnew System::Windows::Forms::Label());
+			this->buttonload = (gcnew System::Windows::Forms::Button());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -978,30 +980,30 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
 			this->dataGridViewclothes->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle5->BackColor = System::Drawing::Color::Cornsilk;
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewclothes->ColumnHeadersVisible = false;
 			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->parametr,
 					this->cloth
 			});
-			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle4;
 			this->dataGridViewclothes->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->dataGridViewclothes->Location = System::Drawing::Point(6, 81);
@@ -1013,8 +1015,8 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			// 
 			// parametr
 			// 
-			dataGridViewCellStyle6->BackColor = System::Drawing::Color::White;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::White;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
 			this->parametr->Frozen = true;
 			this->parametr->HeaderText = L"Ïàðàìåòð";
 			this->parametr->MaxInputLength = 30;
@@ -1025,8 +1027,8 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			// 
 			// cloth
 			// 
-			dataGridViewCellStyle7->BackColor = System::Drawing::Color::White;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::White;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
 			this->cloth->Frozen = true;
 			this->cloth->HeaderText = L"Îäåæäà";
 			this->cloth->MaxInputLength = 30;
@@ -1228,6 +1230,23 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->labelrealty->TabIndex = 2;
 			this->labelrealty->Text = L"Èìóùåñòâî";
 			// 
+			// buttonload
+			// 
+			this->buttonload->BackColor = System::Drawing::Color::Goldenrod;
+			this->buttonload->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->buttonload->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->buttonload->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->buttonload->Location = System::Drawing::Point(594, 83);
+			this->buttonload->Name = L"buttonload";
+			this->buttonload->Size = System::Drawing::Size(124, 52);
+			this->buttonload->TabIndex = 14;
+			this->buttonload->Text = L"Çàãðóçèòü ïåðñîíàæà";
+			this->buttonload->UseVisualStyleBackColor = false;
+			this->buttonload->Visible = false;
+			this->buttonload->Click += gcnew System::EventHandler(this, &Game::buttonload_Click);
+			// 
 			// Game
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1235,6 +1254,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(755, 525);
+			this->Controls->Add(this->buttonload);
 			this->Controls->Add(this->groupBoxclothes);
 			this->Controls->Add(this->groupBoxmd);
 			this->Controls->Add(this->groupBoxrealty);
@@ -1274,7 +1294,7 @@ private: System::Windows::Forms::Button^ buysuitbutton;
 private: System::Void newhumanbutton_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->newhumanbutton->Visible = false;
 	this->Infobox->Visible = true;
-	this->menu->Visible = true;
+	this->buttonload->Visible = true;
 	newhuman^ nh = gcnew newhuman();
 	nh->Show();
 }
@@ -1572,6 +1592,11 @@ private: System::Void buybutton_Click(System::Object^ sender, System::EventArgs^
 			}
 		}
 	}
+}
+private: System::Void buttonload_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->buttonload->Visible = false;
+	Application::Restart;
+	Environment::Exit(0);
 }
 };
 }
