@@ -84,7 +84,6 @@ namespace lab8 {
 					this->Close();
 				}
 			}
-
 		}
 
 	protected:
@@ -1595,8 +1594,49 @@ private: System::Void buybutton_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void buttonload_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->buttonload->Visible = false;
-	Application::Restart;
-	Environment::Exit(0);
+	if (File::Exists("temp.txt") == true) {
+		try
+		{
+			StreamReader^ f = File::OpenText("temp.txt");
+			character->SetName(f->ReadLine());
+			character->SetSex(f->ReadLine());
+			character->SetAge(Convert::ToInt32(f->ReadLine()));
+			character->SetMoneyBalance(Convert::ToInt32(f->ReadLine()));
+			medcard->SetWeight(Convert::ToInt32(f->ReadLine()));
+			medcard->SetHeight(Convert::ToInt32(f->ReadLine()));
+			work->SetNamework(f->ReadLine());
+			work->SetPayment(Convert::ToInt32(f->ReadLine()));
+			clothes->SetBody(f->ReadLine());
+			clothes->SetPants(f->ReadLine());
+			clothes->SetShoes(f->ReadLine());
+			realty->SetHousing(f->ReadLine());
+			realty->SetVehicle(f->ReadLine());
+			character->SetLevel(Convert::ToInt32(f->ReadLine()));
+			f->Close();
+			this->infomoneybalance->Text = Convert::ToString(character->GetMoneybalance());
+			this->infoname->Text = character->GetName();
+			this->infohealthpercent->Text = Convert::ToString(medcard->GetHealthStatus());
+			this->menu->Visible = true;
+			this->Infobox->Visible = true;
+			this->newhumanbutton->Visible = false;
+			this->dataGridViewclothes->Rows->Add();
+			this->dataGridViewclothes->Rows->Add();
+			this->dataGridViewclothes->Rows->Add();
+			this->dataGridViewclothes->Rows->Add();
+			this->dataGridViewclothes->Rows[0]->Cells[0]->Value = L"Верх";
+			this->dataGridViewclothes->Rows[1]->Cells[0]->Value = L"Штаны";
+			this->dataGridViewclothes->Rows[2]->Cells[0]->Value = L"Обувь";
+			this->dataGridViewclothes->Rows[3]->Cells[0]->Value = L"Состояние одежды";
+			if (clothes->GetShoes() == "Туфли") {
+				this->buysuitbutton->Visible = false;
+			}
+		}
+		catch (Exception^)
+		{
+			MessageBox::Show("Ошибка открытия файла!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+		}
+	}
 }
 };
 }
