@@ -266,9 +266,12 @@ namespace lab8 {
 			this->Controls->Add(this->button1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(771, 564);
+			this->MinimumSize = System::Drawing::Size(771, 564);
 			this->Name = L"newhuman";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Создание персонажа";
+			this->TopMost = true;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownweight))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownheight))->EndInit();
 			this->ResumeLayout(false);
